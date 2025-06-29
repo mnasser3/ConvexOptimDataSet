@@ -4,6 +4,12 @@ import numpy as np
 from datasets import load_dataset
 from transformers import BertTokenizer, BertForSequenceClassification
 
+dataset = load_dataset("glue", "sst2")
+dataset["train"].to_csv("sst2_train.csv", index=False)
+dataset["validation"].to_csv("sst2_validation.csv", index=False)
+dataset["test"].to_csv("sst2_test.csv", index=False)
+
+
 dataset = load_dataset('csv', data_files={
     'train': 'sst2_train.csv',
     'validation': 'sst2_validation.csv'
